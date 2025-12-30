@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anastasia & Yiannis | 26.09.2026</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            /* Theme Colors */
+            --terracotta: #C06C54;
+            --sage: #8A9A5B;
+            --cream: #FAF9F6;
+            --text-dark: #2C2C2C;
+            --text-light: #555555;
+            --white: #FFFFFF;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            font-family: 'Lato', sans-serif;
+            background-color: var(--cream);
+            color: var(--text-dark);
+            line-height: 1.6;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Playfair Display', serif;
+            color: var(--terracotta);
+        }
+
+        /* --- Navigation & Language Toggle --- */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(250, 249, 246, 0.95);
+            padding: 15px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            z-index: 1000;
+        }
+
+        .logo { font-size: 1.2rem; font-weight: bold; letter-spacing: 2px; }
+
+        .lang-switch {
+            cursor: pointer;
+            border: 1px solid var(--terracotta);
+            border-radius: 20px;
+            overflow: hidden;
+            display: flex;
+        }
+
+        .lang-btn {
+            padding: 5px 15px;
+            border: none;
+            background: transparent;
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .lang-btn.active {
+            background-color: var(--terracotta);
+            color: var(--white);
+        }
+
+        /* --- Hero Section --- */
+        header {
+            height: 90vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 20px;
+            /* Placeholder for Hero Image - Replace URL below with your photo */
+            background: linear-gradient(rgba(255,255,255,0.3), rgba(255,255,255,0.5)), url('https://images.unsplash.com/photo-1515934751635-c81c6bc9a2d8?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80');
+            background-size: cover;
+            background-position: center;
+        }
+
+        header h1 {
+            font-size: 3.5rem;
+            margin-bottom: 10px;
+            color: var(--text-dark);
+        }
+
+        .date-display {
+            font-size: 1.5rem;
+            letter-spacing: 3px;
+            margin-top: 10px;
+            font-weight: 300;
+            color: var(--text-dark);
+        }
+
+        /* --- Content Sections --- */
+        .section {
+            padding: 80px 10%;
+            max-width: 1000px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .section:nth-child(even) { background-color: white; }
+
+        .section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 30px;
+            color: var(--sage);
+        }
+
+        .invite-text {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 40px auto;
+            font-style: italic;
+        }
+
+        /* --- Timeline --- */
+        .timeline-item {
+            margin-bottom: 40px;
+            padding: 20px;
+            border-left: 3px solid var(--terracotta);
+            text-align: left;
+            margin-left: auto;
+            margin-right: auto;
+            max-width: 600px;
+            background: #fff;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.03);
+        }
+
+        .time { font-weight: bold; color: var(--terracotta); margin-bottom: 5px; display: block; }
+        .venue-name { font-weight: bold; font-size: 1.2rem; margin-bottom: 5px; }
+        .address { font-size: 0.9rem; color: var(--text-light); margin-bottom: 10px; font-style: italic;}
+
+        /* --- Lists (Recommendations) --- */
+        .rec-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            text-align: left;
+            margin-top: 40px;
+        }
+        
+        .rec-card h3 { font-size: 1.3rem; margin-bottom: 15px; border-bottom: 1px solid var(--sage); padding-bottom: 10px; }
+        .rec-card ul { list-style: none; }
+        .rec-card li { margin-bottom: 10px; font-size: 0.95rem; }
+        .rec-card li::before { content: "• "; color: var(--terracotta); }
+
+        /* --- Gifts --- */
+        .gift-box {
+            border: 1px solid var(--sage);
+            padding: 40px;
+            margin-top: 20px;
+            display: inline-block;
+        }
+
+        /* --- RSVP Button --- */
+        .rsvp-btn {
+            display: inline-block;
+            background-color: var(--terracotta);
+            color: white;
+            padding: 15px 40px;
+            text-decoration: none;
+            letter-spacing: 1px;
+            margin-top: 30px;
+            transition: 0.3s;
+        }
+        .rsvp-btn:hover { background-color: #a35640; }
+
+        /* Mobile Adjustments */
+        @media (max-width: 768px) {
+            header h1 { font-size: 2.5rem; }
+            .section { padding: 50px 5%; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="logo">A & Y</div>
+        <div class="lang-switch">
+            <button class="lang-btn" onclick="setLanguage('en')" id="btn-en">EN</button>
+            <button class="lang-btn" onclick="setLanguage('gr')" id="btn-gr">GR</button>
+        </div>
+    </nav>
+
+    <header>
+        <h1 data-i18n="names">Anastasia & Yiannis</h1>
+        <div class="date-display">26 . 09 . 26</div>
+    </header>
+
+    <section class="section">
+        <h2 data-i18n="invite_title">The Wedding</h2>
+        <p class="invite-text" data-i18n="invite_msg">
+            Together with our families, we joyfully invite you to share in our happiness as we unite in marriage. Your presence is the greatest gift of all.
+        </p>
+        <div style="font-size: 1.1rem; color: var(--sage); font-weight: bold;">
+            <span data-i18n="rsvp_deadline">RSVP by July 31st, 2026</span>
+        </div>
+        <a href="mailto:rsvp@example.com" class="rsvp-btn" data-i18n="rsvp_btn">RSVP HERE</a>
+    </section>
+
+    <section class="section" style="background-color: white;">
+        <h2 data-i18n="schedule_title">Schedule of Events</h2>
+        
+        <div class="timeline-item">
+            <span class="time">17:00</span>
+            <div class="venue-name" data-i18n="ceremony_title">The Ceremony</div>
+            <div class="address" data-i18n="ceremony_loc">Monastery of Saint Anastasia, Thessaloniki</div>
+            <p data-i18n="ceremony_desc">A traditional Greek Orthodox ceremony in the historic monastery.</p>
+            <br>
+            <a href="https://maps.google.com/?q=Monastery+of+Saint+Anastasia+Thessaloniki" target="_blank" style="color:var(--terracotta); font-size:0.8rem;">Google Maps &rarr;</a>
+        </div>
+
+        <div class="timeline-item">
+            <span class="time">19:00 - 03:00</span>
+            <div class="venue-name" data-i18n="party_title">The Reception</div>
+            <div class="address" data-i18n="party_loc">Polis Convention Center</div>
+            <p data-i18n="party_desc">
+                Buffet dinner, soft drinks, beers & wines. 
+                Followed by Greek dances, party hits, and an open bar with cocktails. 
+                Late night snacks at 02:00.
+            </p>
+            <br>
+            <a href="https://maps.google.com/?q=Polis+Convention+Center+Thessaloniki" target="_blank" style="color:var(--terracotta); font-size:0.8rem;">Google Maps &rarr;</a>
+        </div>
+    </section>
+
+    <section class="section">
+        <h2 data-i18n="tips_title">Thessaloniki Guide</h2>
+        <p data-i18n="tips_subtitle">We want you to love our city as much as we do. Here are our top picks.</p>
+        
+        <div class="rec-grid">
+            <div class="rec-card">
+                <h3 data-i18n="bride_favs">Anastasia's Favourites</h3>
+                <ul>
+                    <li>Restaurant 1 (Seafood)</li>
+                    <li>Restaurant 2 (Brunch)</li>
+                    <li>Sunset Spot: The Castles</li>
+                </ul>
+            </div>
+            <div class="rec-card">
+                <h3 data-i18n="groom_favs">Yiannis' Favourites</h3>
+                <ul>
+                    <li>Coffee Spot: Aristotelous</li>
+                    <li>Walk: New Waterfront</li>
+                    <li>Museum: White Tower</li>
+                </ul>
+            </div>
+            <div class="rec-card">
+                <h3 data-i18n="bestman_favs">Best Man's Bar Picks</h3>
+                <ul>
+                    <li>Cocktail Bar 1</li>
+                    <li>Rooftop Bar 2</li>
+                    <li>Late Night: Ladadika</li>
+                </ul>
+            </div>
+            <div class="rec-card">
+                <h3 data-i18n="travel_info_title">Travel & Stay</h3>
+                <ul data-i18n="travel_list">
+                    <li><strong>Hotels:</strong> City Hotel, Daios, Electra Palace</li>
+                    <li><strong>Transport:</strong> Renting a car is recommended for the monastery.</li>
+                    <li><strong>Tip:</strong> Book early for September!</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" style="background-color: white;">
+        <h2 data-i18n="gift_title">Gift Registry</h2>
+        <p data-i18n="gift_msg">Your presence at our wedding is the greatest gift of all. However, if you wish to honour us with a gift, a contribution towards our future together would be appreciated.</p>
+        
+        <div class="gift-box">
+            <p id="gift-details">
+                </p>
+        </div>
+    </section>
+
+    <footer style="padding: 40px; text-align: center; background-color: var(--sage); color: white;">
+        <p>Anastasia & Yiannis | 26.09.2026</p>
+    </footer>
+
+    <script>
+        // 1. Translations Object
+        const translations = {
+            en: {
+                names: "Anastasia & Yiannis",
+                invite_title: "The Wedding",
+                invite_msg: "Together with our families, we joyfully invite you to share in our happiness as we unite in marriage. Your presence is the greatest gift of all.",
+                rsvp_deadline: "Please RSVP by July 31st, 2026",
+                rsvp_btn: "RSVP HERE",
+                schedule_title: "Schedule of Events",
+                ceremony_title: "The Ceremony",
+                ceremony_loc: "Monastery of Saint Anastasia, Thessaloniki",
+                ceremony_desc: "A traditional Greek Orthodox ceremony in the historic monastery.",
+                party_title: "The Reception",
+                party_loc: "Polis Convention Center",
+                party_desc: "Join us for a feast! Buffet dinner, soft drinks, beers & wines. Followed by Greek dances, party hits, and an open bar with cocktails. Late night snacks served at 02:00.",
+                tips_title: "Thessaloniki Guide",
+                tips_subtitle: "We want you to love our city as much as we do. Here are our top picks.",
+                bride_favs: "Anastasia's Favourites",
+                groom_favs: "Yiannis' Favourites",
+                bestman_favs: "Best Man's Bar Picks",
+                travel_info_title: "Travel & Stay",
+                travel_list: "<li><strong>Hotels:</strong> City Hotel, Daios, Electra Palace</li><li><strong>Transport:</strong> Renting a car is recommended.</li><li><strong>Tip:</strong> Book early for September!</li>",
+                gift_title: "Gift Registry",
+                gift_msg: "Your presence at our wedding is the greatest gift of all. However, if you wish to honour us with a gift, a contribution towards our future together would be appreciated.",
+                bank_details: "<strong>UK Bank Account</strong><br>Sort Code: XX-XX-XX<br>Account: XXXXXXXX<br>Name: Anastasia & Yiannis"
+            },
+            gr: {
+                names: "Αναστασία & Γιάννης",
+                invite_title: "Ο Γάμος Μας",
+                invite_msg: "Με ιδιαίτερη χαρά, μαζί με τις οικογένειες μας, σας προσκαλούμε να παρευρεθείτε στο γάμο μας και να γιορτάσετε μαζί μας το ξεκίνημα της κοινής μας ζωής.",
+                rsvp_deadline: "Παρακαλούμε απαντήστε έως 31 Ιουλίου 2026",
+                rsvp_btn: "ΔΗΛΩΣΗ ΠΑΡΟΥΣΙΑΣ",
+                schedule_title: "Το Πρόγραμμα",
+                ceremony_title: "Η Τελετή",
+                ceremony_loc: "Μοναστήρι Αγίας Αναστασίας, Θεσσαλονίκη",
+                ceremony_desc: "Παραδοσιακός θρησκευτικός γάμος στο ιστορικό μοναστήρι.",
+                party_title: "Το Γλέντι",
+                party_loc: "Polis Convention Center",
+                party_desc: "Θα ακολουθήσει δείπνο σε μπουφέ με αναψυκτικά, μπύρες και κρασί. Η βραδιά θα συνεχιστεί με παραδοσιακούς χορούς, πάρτι και open bar με cocktails. Late night snacks στις 02:00.",
+                tips_title: "Οδηγός Πόλης",
+                tips_subtitle: "Μερικές προτάσεις για να απολαύσετε την Θεσσαλονίκη.",
+                bride_favs: "Αγαπημένα της Αναστασίας",
+                groom_favs: "Αγαπημένα του Γιάννη",
+                bestman_favs: "Τα μπαρ του Κουμπάρου",
+                travel_info_title: "Διαμονή & Μετακίνηση",
+                travel_list: "<li><strong>Ξενοδοχεία:</strong> City Hotel, Daios, Electra Palace</li><li><strong>Μετακίνηση:</strong> Προτείνεται η ενοικίαση αυτοκινήτου για το μοναστήρι.</li>",
+                gift_title: "Λίστα Γάμου",
+                gift_msg: "Η παρουσία σας είναι το μεγαλύτερο δώρο για εμάς. Αν ωστόσο επιθυμείτε να μας τιμήσετε με κάποιο δώρο, θα εκτιμούσαμε την συνεισφορά σας για τα πρώτα μας βήματα.",
+                bank_details: "<strong>Τραπεζικός Λογαριασμός (IBAN)</strong><br>GRXXXXXXXXXXXXXXXXXXXXXX<br>Τράπεζα Πειραιώς<br>Δικαιούχοι: Αναστασία & Γιάννης"
+            }
+        };
+
+        // 2. Function to Update Content
+        function setLanguage(lang) {
+            // Update Active Button Style
+            document.getElementById('btn-en').classList.remove('active');
+            document.getElementById('btn-gr').classList.remove('active');
+            document.getElementById('btn-' + lang).classList.add('active');
+
+            // Update Text Content
+            const elements = document.querySelectorAll('[data-i18n]');
+            elements.forEach(el => {
+                const key = el.getAttribute('data-i18n');
+                if (translations[lang][key]) {
+                    // Use innerHTML to allow bold tags/line breaks in text
+                    el.innerHTML = translations[lang][key]; 
+                }
+            });
+
+            // Special handling for the Gift Box inner HTML
+            document.getElementById('gift-details').innerHTML = translations[lang]['bank_details'];
+
+            // Update URL without reloading (Optional, nice for sharing)
+            const newUrl = new URL(window.location);
+            newUrl.searchParams.set('lang', lang);
+            window.history.pushState({}, '', newUrl);
+        }
+
+        // 3. Initialize on Load
+        window.onload = function() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const langParam = urlParams.get('lang');
+            
+            // Check URL param first, otherwise default to English
+            if (langParam === 'gr') {
+                setLanguage('gr');
+            } else {
+                setLanguage('en');
+            }
+        };
+    </script>
+</body>
+</html>
