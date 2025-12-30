@@ -78,17 +78,27 @@
 
         /* --- Hero Section --- */
         header {
-            min-height: 100vh; /* Full screen height */
+            min-height: 100vh;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
             text-align: center;
             padding: 20px;
-            /* NEW IMAGE: Olive/Nature theme from Unsplash */
-            background: linear-gradient(rgba(255,255,255,0.4), rgba(255,255,255,0.6)), url('https://images.unsplash.com/photo-1505932578505-1ceaf48d2e06?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80');
-            background-size: cover;
-            background-position: center;
+            padding-top: 80px; /* Added space for the fixed menu */
+            /* REMOVED: The old background image URL */
+            /* ADDED: Solid cream background to let the flowers pop */
+            background-color: var(--cream); 
+            overflow: hidden;
+        }
+
+        /* NEW STYLE FOR YOUR IMAGE */
+        .hero-image {
+            max-width: 90%; /* Fits on mobile */
+            width: 600px;   /* Max size on desktop */
+            height: auto;
+            margin-bottom: -20px; /* Pulls the names closer to the flowers */
+            animation: fadeIn 2s ease-in;
         }
 
         header h1 {
@@ -96,8 +106,14 @@
             margin-bottom: 5px;
             color: var(--text-dark);
             line-height: 1.1;
+            z-index: 2; /* Ensures text sits on top if they overlap */
         }
-
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
         .date-display {
             font-size: 1.8rem;
             letter-spacing: 2px;
@@ -257,6 +273,8 @@
     </nav>
 
     <header>
+        <img src="header-flowers.png" alt="Wedding Floral Decor" class="hero-image">
+        
         <h1 data-i18n="names">Anastasia & Yiannis</h1>
         <div class="date-display">26 . 09 . 2026</div>
 
