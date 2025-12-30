@@ -17,9 +17,12 @@
             --terracotta: #C06C54;
             --sage: #8A9A5B;
             --cream: #FAF9F6;
-            --text-dark: #2C2C2C;
+            --text-dark: #2C2C2C; 
             --text-light: #555555;
             --white: #FFFFFF;
+            
+            /* NEW COLOR: Dark Olive Green for text */
+            --dark-green: #4A5E3A; 
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -32,12 +35,12 @@
         }
 
         h1, h2, h3, h4 {
-            font-family: 'Cormorant Garamond', serif; /* New Elegant Font */
+            font-family: 'Cormorant Garamond', serif;
             color: var(--terracotta);
             font-weight: 700;
         }
 
-        /* --- Navigation & Language Toggle --- */
+        /* --- Navigation --- */
         nav {
             position: fixed;
             top: 0;
@@ -51,7 +54,13 @@
             z-index: 1000;
         }
 
-        .logo { font-size: 1.5rem; font-weight: bold; font-family: 'Cormorant Garamond', serif; }
+        .logo { 
+            font-size: 1.5rem; 
+            font-weight: bold; 
+            font-family: 'Cormorant Garamond', serif;
+            /* CHANGED: Now uses Dark Green */
+            color: var(--dark-green); 
+        }
 
         .lang-switch {
             cursor: pointer;
@@ -85,45 +94,47 @@
             align-items: center;
             text-align: center;
             padding: 20px;
-            padding-top: 80px; /* Added space for the fixed menu */
-            /* REMOVED: The old background image URL */
-            /* ADDED: Solid cream background to let the flowers pop */
+            padding-top: 80px;
             background-color: var(--cream); 
             overflow: hidden;
         }
 
-        /* NEW STYLE FOR YOUR IMAGE */
         .hero-image {
-            max-width: 90%; /* Fits on mobile */
-            width: 600px;   /* Max size on desktop */
+            max-width: 90%;
+            width: 600px;
             height: auto;
-            margin-bottom: -20px; /* Pulls the names closer to the flowers */
+            /* CHANGED: Positive margin pushes names down (creates space) */
+            margin-bottom: 40px; 
+            /* CHANGED: Negative top margin pulls the image higher up */
+            margin-top: -60px;   
             animation: fadeIn 2s ease-in;
         }
 
         header h1 {
             font-size: 4rem;
             margin-bottom: 5px;
-            color: var(--text-dark);
+            /* CHANGED: Now uses Dark Green */
+            color: var(--dark-green);
             line-height: 1.1;
-            z-index: 2; /* Ensures text sits on top if they overlap */
+            z-index: 2;
+        }
+
+        .date-display {
+            font-size: 1.8rem;
+            letter-spacing: 2px;
+            margin-top: 10px;
+            font-weight: 300;
+            /* CHANGED: Now uses Dark Green */
+            color: var(--dark-green);
+            font-family: 'Cormorant Garamond', serif;
         }
         
         @keyframes fadeIn {
             from { opacity: 0; transform: translateY(-20px); }
             to { opacity: 1; transform: translateY(0); }
         }
-        
-        .date-display {
-            font-size: 1.8rem;
-            letter-spacing: 2px;
-            margin-top: 10px;
-            font-weight: 300;
-            color: var(--text-dark);
-            font-family: 'Cormorant Garamond', serif;
-        }
 
-        /* --- COUNTDOWN TIMER --- */
+        /* --- COUNTDOWN --- */
         #countdown {
             display: flex;
             justify-content: center;
@@ -259,6 +270,7 @@
             .cd-box { min-width: 60px; padding: 10px; }
             .cd-number { font-size: 1.4rem; }
             .cd-label { font-size: 0.6rem; }
+            .hero-image { margin-top: 0; } /* Reset move on mobile to prevent cutting off */
         }
     </style>
 </head>
