@@ -7,7 +7,9 @@
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
     <style>
         :root {
@@ -23,15 +25,16 @@
         * { margin: 0; padding: 0; box-sizing: border-box; }
         
         body {
-            font-family: 'Lato', sans-serif;
+            font-family: 'Montserrat', sans-serif;
             background-color: var(--cream);
             color: var(--text-dark);
             line-height: 1.6;
         }
 
         h1, h2, h3, h4 {
-            font-family: 'Playfair Display', serif;
+            font-family: 'Cormorant Garamond', serif; /* New Elegant Font */
             color: var(--terracotta);
+            font-weight: 700;
         }
 
         /* --- Navigation & Language Toggle --- */
@@ -48,7 +51,7 @@
             z-index: 1000;
         }
 
-        .logo { font-size: 1.2rem; font-weight: bold; letter-spacing: 2px; }
+        .logo { font-size: 1.5rem; font-weight: bold; font-family: 'Cormorant Garamond', serif; }
 
         .lang-switch {
             cursor: pointer;
@@ -65,6 +68,7 @@
             font-size: 0.9rem;
             cursor: pointer;
             transition: 0.3s;
+            font-family: 'Montserrat', sans-serif;
         }
 
         .lang-btn.active {
@@ -74,31 +78,66 @@
 
         /* --- Hero Section --- */
         header {
-            height: 90vh;
+            min-height: 100vh; /* Full screen height */
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
             text-align: center;
             padding: 20px;
-            /* Placeholder for Hero Image - Replace URL below with your photo */
-            background: linear-gradient(rgba(255,255,255,0.3), rgba(255,255,255,0.5)), url('https://images.unsplash.com/photo-1515934751635-c81c6bc9a2d8?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80');
+            /* NEW IMAGE: Olive/Nature theme from Unsplash */
+            background: linear-gradient(rgba(255,255,255,0.4), rgba(255,255,255,0.6)), url('https://images.unsplash.com/photo-1505932578505-1ceaf48d2e06?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80');
             background-size: cover;
             background-position: center;
         }
 
         header h1 {
-            font-size: 3.5rem;
-            margin-bottom: 10px;
+            font-size: 4rem;
+            margin-bottom: 5px;
             color: var(--text-dark);
+            line-height: 1.1;
         }
 
         .date-display {
-            font-size: 1.5rem;
-            letter-spacing: 3px;
+            font-size: 1.8rem;
+            letter-spacing: 2px;
             margin-top: 10px;
             font-weight: 300;
             color: var(--text-dark);
+            font-family: 'Cormorant Garamond', serif;
+        }
+
+        /* --- COUNTDOWN TIMER --- */
+        #countdown {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 40px;
+            flex-wrap: wrap;
+        }
+
+        .cd-box {
+            background: rgba(255,255,255,0.8);
+            border: 1px solid var(--sage);
+            padding: 15px;
+            min-width: 80px;
+            border-radius: 5px;
+            text-align: center;
+        }
+
+        .cd-number {
+            display: block;
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: var(--terracotta);
+            font-family: 'Cormorant Garamond', serif;
+        }
+
+        .cd-label {
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--text-light);
         }
 
         /* --- Content Sections --- */
@@ -112,55 +151,71 @@
         .section:nth-child(even) { background-color: white; }
 
         .section h2 {
-            font-size: 2.5rem;
-            margin-bottom: 30px;
+            font-size: 3rem;
+            margin-bottom: 40px;
             color: var(--sage);
         }
 
         .invite-text {
-            font-size: 1.2rem;
+            font-size: 1.3rem;
             max-width: 700px;
             margin: 0 auto 40px auto;
             font-style: italic;
+            font-family: 'Cormorant Garamond', serif;
         }
 
         /* --- Timeline --- */
         .timeline-item {
             margin-bottom: 40px;
-            padding: 20px;
-            border-left: 3px solid var(--terracotta);
+            padding: 30px;
+            border-left: 4px solid var(--terracotta);
             text-align: left;
             margin-left: auto;
             margin-right: auto;
-            max-width: 600px;
+            max-width: 650px;
             background: #fff;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.03);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            border-radius: 0 10px 10px 0;
+            position: relative;
         }
 
-        .time { font-weight: bold; color: var(--terracotta); margin-bottom: 5px; display: block; }
-        .venue-name { font-weight: bold; font-size: 1.2rem; margin-bottom: 5px; }
-        .address { font-size: 0.9rem; color: var(--text-light); margin-bottom: 10px; font-style: italic;}
+        .time { font-weight: bold; color: var(--terracotta); margin-bottom: 10px; display: block; font-size: 1.1rem; }
+        .time i { margin-right: 8px; }
+        
+        .venue-name { font-weight: bold; font-size: 1.4rem; margin-bottom: 5px; font-family: 'Cormorant Garamond', serif;}
+        .address { font-size: 0.95rem; color: var(--text-light); margin-bottom: 15px; font-style: italic;}
 
         /* --- Lists (Recommendations) --- */
         .rec-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 30px;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 40px;
             text-align: left;
             margin-top: 40px;
         }
         
-        .rec-card h3 { font-size: 1.3rem; margin-bottom: 15px; border-bottom: 1px solid var(--sage); padding-bottom: 10px; }
+        .rec-card h3 { 
+            font-size: 1.5rem; 
+            margin-bottom: 20px; 
+            border-bottom: 2px solid var(--sage); 
+            padding-bottom: 10px; 
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
         .rec-card ul { list-style: none; }
-        .rec-card li { margin-bottom: 10px; font-size: 0.95rem; }
-        .rec-card li::before { content: "• "; color: var(--terracotta); }
+        .rec-card li { margin-bottom: 12px; font-size: 1rem; display: flex; align-items: flex-start;}
+        .rec-card li i { color: var(--terracotta); margin-right: 10px; margin-top: 4px; font-size: 0.8rem;}
 
         /* --- Gifts --- */
         .gift-box {
-            border: 1px solid var(--sage);
+            border: 2px dashed var(--sage);
             padding: 40px;
             margin-top: 20px;
             display: inline-block;
+            background: var(--cream);
+            border-radius: 10px;
         }
 
         /* --- RSVP Button --- */
@@ -168,18 +223,26 @@
             display: inline-block;
             background-color: var(--terracotta);
             color: white;
-            padding: 15px 40px;
+            padding: 15px 45px;
             text-decoration: none;
-            letter-spacing: 1px;
+            letter-spacing: 2px;
             margin-top: 30px;
             transition: 0.3s;
+            font-weight: 600;
+            border-radius: 3px;
+            text-transform: uppercase;
+            font-size: 0.9rem;
         }
-        .rsvp-btn:hover { background-color: #a35640; }
+        .rsvp-btn:hover { background-color: #a35640; transform: translateY(-2px); }
 
         /* Mobile Adjustments */
         @media (max-width: 768px) {
-            header h1 { font-size: 2.5rem; }
+            header h1 { font-size: 2.8rem; }
             .section { padding: 50px 5%; }
+            #countdown { gap: 10px; }
+            .cd-box { min-width: 60px; padding: 10px; }
+            .cd-number { font-size: 1.4rem; }
+            .cd-label { font-size: 0.6rem; }
         }
     </style>
 </head>
@@ -195,7 +258,26 @@
 
     <header>
         <h1 data-i18n="names">Anastasia & Yiannis</h1>
-        <div class="date-display">26 . 09 . 26</div>
+        <div class="date-display">26 . 09 . 2026</div>
+
+        <div id="countdown">
+            <div class="cd-box">
+                <span class="cd-number" id="days">0</span>
+                <span class="cd-label" data-i18n="cd_days">Days</span>
+            </div>
+            <div class="cd-box">
+                <span class="cd-number" id="hours">0</span>
+                <span class="cd-label" data-i18n="cd_hours">Hours</span>
+            </div>
+            <div class="cd-box">
+                <span class="cd-number" id="minutes">0</span>
+                <span class="cd-label" data-i18n="cd_mins">Mins</span>
+            </div>
+            <div class="cd-box">
+                <span class="cd-number" id="seconds">0</span>
+                <span class="cd-label" data-i18n="cd_secs">Secs</span>
+            </div>
+        </div>
     </header>
 
     <section class="section">
@@ -204,7 +286,7 @@
             Together with our families, we joyfully invite you to share in our happiness as we unite in marriage. Your presence is the greatest gift of all.
         </p>
         <div style="font-size: 1.1rem; color: var(--sage); font-weight: bold;">
-            <span data-i18n="rsvp_deadline">RSVP by July 31st, 2026</span>
+            <i class="far fa-calendar-check"></i> <span data-i18n="rsvp_deadline">RSVP by July 31st, 2026</span>
         </div>
         <a href="mailto:rsvp@example.com" class="rsvp-btn" data-i18n="rsvp_btn">RSVP HERE</a>
     </section>
@@ -213,25 +295,25 @@
         <h2 data-i18n="schedule_title">Schedule of Events</h2>
         
         <div class="timeline-item">
-            <span class="time">17:00</span>
+            <span class="time"><i class="far fa-clock"></i> 17:00</span>
             <div class="venue-name" data-i18n="ceremony_title">The Ceremony</div>
-            <div class="address" data-i18n="ceremony_loc">Monastery of Saint Anastasia, Thessaloniki</div>
+            <div class="address"><i class="fas fa-map-marker-alt" style="color:var(--sage)"></i> <span data-i18n="ceremony_loc">Monastery of Saint Anastasia, Thessaloniki</span></div>
             <p data-i18n="ceremony_desc">A traditional Greek Orthodox ceremony in the historic monastery.</p>
             <br>
-            <a href="https://maps.google.com/?q=Monastery+of+Saint+Anastasia+Thessaloniki" target="_blank" style="color:var(--terracotta); font-size:0.8rem;">Google Maps &rarr;</a>
+            <a href="https://maps.google.com" target="_blank" style="color:var(--terracotta); font-size:0.9rem; font-weight:bold;"><i class="fas fa-location-arrow"></i> Google Maps</a>
         </div>
 
         <div class="timeline-item">
-            <span class="time">19:00 - 03:00</span>
+            <span class="time"><i class="far fa-clock"></i> 19:00 - 03:00</span>
             <div class="venue-name" data-i18n="party_title">The Reception</div>
-            <div class="address" data-i18n="party_loc">Polis Convention Center</div>
+            <div class="address"><i class="fas fa-map-marker-alt" style="color:var(--sage)"></i> <span data-i18n="party_loc">Polis Convention Center</span></div>
             <p data-i18n="party_desc">
                 Buffet dinner, soft drinks, beers & wines. 
                 Followed by Greek dances, party hits, and an open bar with cocktails. 
                 Late night snacks at 02:00.
             </p>
             <br>
-            <a href="https://maps.google.com/?q=Polis+Convention+Center+Thessaloniki" target="_blank" style="color:var(--terracotta); font-size:0.8rem;">Google Maps &rarr;</a>
+            <a href="https://maps.google.com" target="_blank" style="color:var(--terracotta); font-size:0.9rem; font-weight:bold;"><i class="fas fa-location-arrow"></i> Google Maps</a>
         </div>
     </section>
 
@@ -241,35 +323,35 @@
         
         <div class="rec-grid">
             <div class="rec-card">
-                <h3 data-i18n="bride_favs">Anastasia's Favourites</h3>
+                <h3 data-i18n="bride_favs"><i class="fas fa-heart" style="color:var(--terracotta)"></i> Anastasia's Favourites</h3>
                 <ul>
-                    <li>Restaurant 1 (Seafood)</li>
-                    <li>Restaurant 2 (Brunch)</li>
-                    <li>Sunset Spot: The Castles</li>
+                    <li><i class="fas fa-utensils"></i> Restaurant 1 (Seafood)</li>
+                    <li><i class="fas fa-coffee"></i> Restaurant 2 (Brunch)</li>
+                    <li><i class="fas fa-camera"></i> Sunset Spot: The Castles</li>
                 </ul>
             </div>
             <div class="rec-card">
-                <h3 data-i18n="groom_favs">Yiannis' Favourites</h3>
+                <h3 data-i18n="groom_favs"><i class="fas fa-heart" style="color:var(--sage)"></i> Yiannis' Favourites</h3>
                 <ul>
-                    <li>Coffee Spot: Aristotelous</li>
-                    <li>Walk: New Waterfront</li>
-                    <li>Museum: White Tower</li>
+                    <li><i class="fas fa-mug-hot"></i> Coffee Spot: Aristotelous</li>
+                    <li><i class="fas fa-walking"></i> Walk: New Waterfront</li>
+                    <li><i class="fas fa-landmark"></i> Museum: White Tower</li>
                 </ul>
             </div>
             <div class="rec-card">
-                <h3 data-i18n="bestman_favs">Best Man's Bar Picks</h3>
+                <h3 data-i18n="bestman_favs"><i class="fas fa-glass-martini-alt"></i> Best Man's Bar Picks</h3>
                 <ul>
-                    <li>Cocktail Bar 1</li>
-                    <li>Rooftop Bar 2</li>
-                    <li>Late Night: Ladadika</li>
+                    <li><i class="fas fa-cocktail"></i> Cocktail Bar 1</li>
+                    <li><i class="fas fa-wine-glass"></i> Rooftop Bar 2</li>
+                    <li><i class="fas fa-moon"></i> Late Night: Ladadika</li>
                 </ul>
             </div>
             <div class="rec-card">
-                <h3 data-i18n="travel_info_title">Travel & Stay</h3>
+                <h3 data-i18n="travel_info_title"><i class="fas fa-plane"></i> Travel & Stay</h3>
                 <ul data-i18n="travel_list">
-                    <li><strong>Hotels:</strong> City Hotel, Daios, Electra Palace</li>
-                    <li><strong>Transport:</strong> Renting a car is recommended for the monastery.</li>
-                    <li><strong>Tip:</strong> Book early for September!</li>
+                    <li><i class="fas fa-bed"></i> <strong>Hotels:</strong> City Hotel, Daios, Electra Palace</li>
+                    <li><i class="fas fa-car"></i> <strong>Transport:</strong> Renting a car is recommended.</li>
+                    <li><i class="fas fa-calendar-alt"></i> <strong>Tip:</strong> Book early for September!</li>
                 </ul>
             </div>
         </div>
@@ -280,6 +362,7 @@
         <p data-i18n="gift_msg">Your presence at our wedding is the greatest gift of all. However, if you wish to honour us with a gift, a contribution towards our future together would be appreciated.</p>
         
         <div class="gift-box">
+            <i class="fas fa-gift" style="font-size: 2rem; color: var(--sage); margin-bottom: 20px;"></i>
             <p id="gift-details">
                 </p>
         </div>
@@ -290,10 +373,11 @@
     </footer>
 
     <script>
-        // 1. Translations Object
+        // --- TRANSLATIONS ---
         const translations = {
             en: {
                 names: "Anastasia & Yiannis",
+                cd_days: "Days", cd_hours: "Hours", cd_mins: "Mins", cd_secs: "Secs",
                 invite_title: "The Wedding",
                 invite_msg: "Together with our families, we joyfully invite you to share in our happiness as we unite in marriage. Your presence is the greatest gift of all.",
                 rsvp_deadline: "Please RSVP by July 31st, 2026",
@@ -307,17 +391,18 @@
                 party_desc: "Join us for a feast! Buffet dinner, soft drinks, beers & wines. Followed by Greek dances, party hits, and an open bar with cocktails. Late night snacks served at 02:00.",
                 tips_title: "Thessaloniki Guide",
                 tips_subtitle: "We want you to love our city as much as we do. Here are our top picks.",
-                bride_favs: "Anastasia's Favourites",
-                groom_favs: "Yiannis' Favourites",
-                bestman_favs: "Best Man's Bar Picks",
-                travel_info_title: "Travel & Stay",
-                travel_list: "<li><strong>Hotels:</strong> City Hotel, Daios, Electra Palace</li><li><strong>Transport:</strong> Renting a car is recommended.</li><li><strong>Tip:</strong> Book early for September!</li>",
+                bride_favs: "<i class='fas fa-heart' style='color:var(--terracotta)'></i> Anastasia's Favourites",
+                groom_favs: "<i class='fas fa-heart' style='color:var(--sage)'></i> Yiannis' Favourites",
+                bestman_favs: "<i class='fas fa-glass-martini-alt'></i> Best Man's Bar Picks",
+                travel_info_title: "<i class='fas fa-plane'></i> Travel & Stay",
+                travel_list: "<li><i class='fas fa-bed'></i> <strong>Hotels:</strong> City Hotel, Daios, Electra Palace</li><li><i class='fas fa-car'></i> <strong>Transport:</strong> Renting a car is recommended.</li><li><i class='fas fa-calendar-alt'></i> <strong>Tip:</strong> Book early for September!</li>",
                 gift_title: "Gift Registry",
                 gift_msg: "Your presence at our wedding is the greatest gift of all. However, if you wish to honour us with a gift, a contribution towards our future together would be appreciated.",
                 bank_details: "<strong>UK Bank Account</strong><br>Sort Code: XX-XX-XX<br>Account: XXXXXXXX<br>Name: Anastasia & Yiannis"
             },
             gr: {
                 names: "Αναστασία & Γιάννης",
+                cd_days: "Ημέρες", cd_hours: "Ώρες", cd_mins: "Λεπτά", cd_secs: "Δευτ.",
                 invite_title: "Ο Γάμος Μας",
                 invite_msg: "Με ιδιαίτερη χαρά, μαζί με τις οικογένειες μας, σας προσκαλούμε να παρευρεθείτε στο γάμο μας και να γιορτάσετε μαζί μας το ξεκίνημα της κοινής μας ζωής.",
                 rsvp_deadline: "Παρακαλούμε απαντήστε έως 31 Ιουλίου 2026",
@@ -331,20 +416,20 @@
                 party_desc: "Θα ακολουθήσει δείπνο σε μπουφέ με αναψυκτικά, μπύρες και κρασί. Η βραδιά θα συνεχιστεί με παραδοσιακούς χορούς, πάρτι και open bar με cocktails. Late night snacks στις 02:00.",
                 tips_title: "Οδηγός Πόλης",
                 tips_subtitle: "Μερικές προτάσεις για να απολαύσετε την Θεσσαλονίκη.",
-                bride_favs: "Αγαπημένα της Αναστασίας",
-                groom_favs: "Αγαπημένα του Γιάννη",
-                bestman_favs: "Τα μπαρ του Κουμπάρου",
-                travel_info_title: "Διαμονή & Μετακίνηση",
-                travel_list: "<li><strong>Ξενοδοχεία:</strong> City Hotel, Daios, Electra Palace</li><li><strong>Μετακίνηση:</strong> Προτείνεται η ενοικίαση αυτοκινήτου για το μοναστήρι.</li>",
+                bride_favs: "<i class='fas fa-heart' style='color:var(--terracotta)'></i> Αγαπημένα της Αναστασίας",
+                groom_favs: "<i class='fas fa-heart' style='color:var(--sage)'></i> Αγαπημένα του Γιάννη",
+                bestman_favs: "<i class='fas fa-glass-martini-alt'></i> Τα μπαρ του Κουμπάρου",
+                travel_info_title: "<i class='fas fa-plane'></i> Διαμονή & Μετακίνηση",
+                travel_list: "<li><i class='fas fa-bed'></i> <strong>Ξενοδοχεία:</strong> City Hotel, Daios, Electra Palace</li><li><i class='fas fa-car'></i> <strong>Μετακίνηση:</strong> Προτείνεται η ενοικίαση αυτοκινήτου για το μοναστήρι.</li>",
                 gift_title: "Λίστα Γάμου",
                 gift_msg: "Η παρουσία σας είναι το μεγαλύτερο δώρο για εμάς. Αν ωστόσο επιθυμείτε να μας τιμήσετε με κάποιο δώρο, θα εκτιμούσαμε την συνεισφορά σας για τα πρώτα μας βήματα.",
                 bank_details: "<strong>Τραπεζικός Λογαριασμός (IBAN)</strong><br>GRXXXXXXXXXXXXXXXXXXXXXX<br>Τράπεζα Πειραιώς<br>Δικαιούχοι: Αναστασία & Γιάννης"
             }
         };
 
-        // 2. Function to Update Content
+        // --- LANGUAGE SWITCHER ---
         function setLanguage(lang) {
-            // Update Active Button Style
+            // Update Active Button
             document.getElementById('btn-en').classList.remove('active');
             document.getElementById('btn-gr').classList.remove('active');
             document.getElementById('btn-' + lang).classList.add('active');
@@ -354,31 +439,50 @@
             elements.forEach(el => {
                 const key = el.getAttribute('data-i18n');
                 if (translations[lang][key]) {
-                    // Use innerHTML to allow bold tags/line breaks in text
                     el.innerHTML = translations[lang][key]; 
                 }
             });
 
-            // Special handling for the Gift Box inner HTML
+            // Update Gift details
             document.getElementById('gift-details').innerHTML = translations[lang]['bank_details'];
 
-            // Update URL without reloading (Optional, nice for sharing)
+            // Update URL
             const newUrl = new URL(window.location);
             newUrl.searchParams.set('lang', lang);
             window.history.pushState({}, '', newUrl);
         }
 
-        // 3. Initialize on Load
+        // --- COUNTDOWN LOGIC ---
+        const weddingDate = new Date("September 26, 2026 17:00:00").getTime();
+
+        function updateCountdown() {
+            const now = new Date().getTime();
+            const distance = weddingDate - now;
+
+            if (distance < 0) {
+                document.getElementById("countdown").innerHTML = "HAPPILY MARRIED!";
+                return;
+            }
+
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            document.getElementById("days").innerText = days;
+            document.getElementById("hours").innerText = hours;
+            document.getElementById("minutes").innerText = minutes;
+            document.getElementById("seconds").innerText = seconds;
+        }
+
+        setInterval(updateCountdown, 1000);
+        updateCountdown(); // Run once immediately
+
+        // --- INITIALIZATION ---
         window.onload = function() {
             const urlParams = new URLSearchParams(window.location.search);
             const langParam = urlParams.get('lang');
-            
-            // Check URL param first, otherwise default to English
-            if (langParam === 'gr') {
-                setLanguage('gr');
-            } else {
-                setLanguage('en');
-            }
+            if (langParam === 'gr') { setLanguage('gr'); } else { setLanguage('en'); }
         };
     </script>
 </body>
