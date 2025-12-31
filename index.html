@@ -21,7 +21,7 @@
             --text-light: #555555;
             --white: #FFFFFF;
             
-            /* NEW COLOR: Dark Olive Green for text */
+            /* Dark Olive Green (Used for Text & Names) */
             --dark-green: #4A5E3A; 
         }
 
@@ -58,7 +58,6 @@
             font-size: 1.5rem; 
             font-weight: bold; 
             font-family: 'Cormorant Garamond', serif;
-            /* CHANGED: Now uses Dark Green */
             color: var(--dark-green); 
         }
 
@@ -100,12 +99,11 @@
         }
 
         .hero-image {
-            max-width: 90%;
-            width: 600px;
+            /* DESKTOP SETTINGS */
+            width: 900px;         /* Fixed width for desktop */
+            max-width: 100%;      /* Ensures it doesn't overflow screen */
             height: auto;
-            /* CHANGED: Positive margin pushes names down (creates space) */
-            margin-bottom: 40px; 
-            /* CHANGED: Negative top margin pulls the image higher up */
+            margin-bottom: 0px;   /* Removed bottom margin */
             margin-top: -60px;   
             animation: fadeIn 2s ease-in;
         }
@@ -113,7 +111,6 @@
         header h1 {
             font-size: 4rem;
             margin-bottom: 5px;
-            /* CHANGED: Now uses Dark Green */
             color: var(--dark-green);
             line-height: 1.1;
             z-index: 2;
@@ -124,7 +121,6 @@
             letter-spacing: 2px;
             margin-top: 10px;
             font-weight: 300;
-            /* CHANGED: Now uses Dark Green */
             color: var(--dark-green);
             font-family: 'Cormorant Garamond', serif;
         }
@@ -180,7 +176,7 @@
         .section h2 {
             font-size: 3rem;
             margin-bottom: 40px;
-            color: var(--sage);
+            color: var(--dark-green); /* CHANGED FROM SAGE TO DARK GREEN */
         }
 
         .invite-text {
@@ -262,15 +258,29 @@
         }
         .rsvp-btn:hover { background-color: #a35640; transform: translateY(-2px); }
 
-        /* Mobile Adjustments */
+        /* --- MOBILE STYLES --- */
         @media (max-width: 768px) {
             header h1 { font-size: 2.8rem; }
+            
+            /* Make image full width on mobile */
+            .hero-image { 
+                width: 100%; 
+                margin-top: 0;
+            }
+            
             .section { padding: 50px 5%; }
+            
             #countdown { gap: 10px; }
             .cd-box { min-width: 60px; padding: 10px; }
             .cd-number { font-size: 1.4rem; }
             .cd-label { font-size: 0.6rem; }
-            .hero-image { margin-top: 0; } /* Reset move on mobile to prevent cutting off */
+
+            /* STACKED NAMES: Makes the & symbol a block element on mobile, forcing new lines */
+            .mobile-amp {
+                display: block;
+                margin: 5px 0;
+                font-size: 2rem; /* Make the ampersand slightly smaller if desired */
+            }
         }
     </style>
 </head>
@@ -315,7 +325,7 @@
         <p class="invite-text" data-i18n="invite_msg">
             Together with our families, we joyfully invite you to share in our happiness as we unite in marriage. Your presence is the greatest gift of all.
         </p>
-        <div style="font-size: 1.1rem; color: var(--sage); font-weight: bold;">
+        <div style="font-size: 1.1rem; color: var(--dark-green); font-weight: bold;">
             <i class="far fa-calendar-check"></i> <span data-i18n="rsvp_deadline">RSVP by July 31st, 2026</span>
         </div>
         <a href="mailto:rsvp@example.com" class="rsvp-btn" data-i18n="rsvp_btn">RSVP HERE</a>
@@ -327,7 +337,7 @@
         <div class="timeline-item">
             <span class="time"><i class="far fa-clock"></i> 17:00</span>
             <div class="venue-name" data-i18n="ceremony_title">The Ceremony</div>
-            <div class="address"><i class="fas fa-map-marker-alt" style="color:var(--sage)"></i> <span data-i18n="ceremony_loc">Monastery of Saint Anastasia, Thessaloniki</span></div>
+            <div class="address"><i class="fas fa-map-marker-alt" style="color:var(--dark-green)"></i> <span data-i18n="ceremony_loc">Monastery of Saint Anastasia, Thessaloniki</span></div>
             <p data-i18n="ceremony_desc">A traditional Greek Orthodox ceremony in the historic monastery.</p>
             <br>
             <a href="https://maps.google.com" target="_blank" style="color:var(--terracotta); font-size:0.9rem; font-weight:bold;"><i class="fas fa-location-arrow"></i> Google Maps</a>
@@ -336,7 +346,7 @@
         <div class="timeline-item">
             <span class="time"><i class="far fa-clock"></i> 19:00 - 03:00</span>
             <div class="venue-name" data-i18n="party_title">The Reception</div>
-            <div class="address"><i class="fas fa-map-marker-alt" style="color:var(--sage)"></i> <span data-i18n="party_loc">Polis Convention Center</span></div>
+            <div class="address"><i class="fas fa-map-marker-alt" style="color:var(--dark-green)"></i> <span data-i18n="party_loc">Polis Convention Center</span></div>
             <p data-i18n="party_desc">
                 Buffet dinner, soft drinks, beers & wines. 
                 Followed by Greek dances, party hits, and an open bar with cocktails. 
@@ -361,7 +371,7 @@
                 </ul>
             </div>
             <div class="rec-card">
-                <h3 data-i18n="groom_favs"><i class="fas fa-heart" style="color:var(--sage)"></i> Yiannis' Favourites</h3>
+                <h3 data-i18n="groom_favs"><i class="fas fa-heart" style="color:var(--dark-green)"></i> Yiannis' Favourites</h3>
                 <ul>
                     <li><i class="fas fa-mug-hot"></i> Coffee Spot: Aristotelous</li>
                     <li><i class="fas fa-walking"></i> Walk: New Waterfront</li>
@@ -392,7 +402,7 @@
         <p data-i18n="gift_msg">Your presence at our wedding is the greatest gift of all. However, if you wish to honour us with a gift, a contribution towards our future together would be appreciated.</p>
         
         <div class="gift-box">
-            <i class="fas fa-gift" style="font-size: 2rem; color: var(--sage); margin-bottom: 20px;"></i>
+            <i class="fas fa-gift" style="font-size: 2rem; color: var(--dark-green); margin-bottom: 20px;"></i>
             <p id="gift-details">
                 </p>
         </div>
@@ -406,7 +416,8 @@
         // --- TRANSLATIONS ---
         const translations = {
             en: {
-                names: "Anastasia & Yiannis",
+                // Modified names to include the mobile-amp span for stacking
+                names: "Anastasia <span class='mobile-amp'>&</span> Yiannis",
                 cd_days: "Days", cd_hours: "Hours", cd_mins: "Mins", cd_secs: "Secs",
                 invite_title: "The Wedding",
                 invite_msg: "Together with our families, we joyfully invite you to share in our happiness as we unite in marriage. Your presence is the greatest gift of all.",
@@ -422,7 +433,7 @@
                 tips_title: "Thessaloniki Guide",
                 tips_subtitle: "We want you to love our city as much as we do. Here are our top picks.",
                 bride_favs: "<i class='fas fa-heart' style='color:var(--terracotta)'></i> Anastasia's Favourites",
-                groom_favs: "<i class='fas fa-heart' style='color:var(--sage)'></i> Yiannis' Favourites",
+                groom_favs: "<i class='fas fa-heart' style='color:var(--dark-green)'></i> Yiannis' Favourites",
                 bestman_favs: "<i class='fas fa-glass-martini-alt'></i> Best Man's Bar Picks",
                 travel_info_title: "<i class='fas fa-plane'></i> Travel & Stay",
                 travel_list: "<li><i class='fas fa-bed'></i> <strong>Hotels:</strong> City Hotel, Daios, Electra Palace</li><li><i class='fas fa-car'></i> <strong>Transport:</strong> Renting a car is recommended.</li><li><i class='fas fa-calendar-alt'></i> <strong>Tip:</strong> Book early for September!</li>",
@@ -431,7 +442,8 @@
                 bank_details: "<strong>UK Bank Account</strong><br>Sort Code: XX-XX-XX<br>Account: XXXXXXXX<br>Name: Anastasia & Yiannis"
             },
             gr: {
-                names: "Αναστασία & Γιάννης",
+                // Modified names to include the mobile-amp span for stacking
+                names: "Αναστασία <span class='mobile-amp'>&</span> Γιάννης",
                 cd_days: "Ημέρες", cd_hours: "Ώρες", cd_mins: "Λεπτά", cd_secs: "Δευτ.",
                 invite_title: "Ο Γάμος Μας",
                 invite_msg: "Με ιδιαίτερη χαρά, μαζί με τις οικογένειες μας, σας προσκαλούμε να παρευρεθείτε στο γάμο μας και να γιορτάσετε μαζί μας το ξεκίνημα της κοινής μας ζωής.",
@@ -447,7 +459,7 @@
                 tips_title: "Οδηγός Πόλης",
                 tips_subtitle: "Μερικές προτάσεις για να απολαύσετε την Θεσσαλονίκη.",
                 bride_favs: "<i class='fas fa-heart' style='color:var(--terracotta)'></i> Αγαπημένα της Αναστασίας",
-                groom_favs: "<i class='fas fa-heart' style='color:var(--sage)'></i> Αγαπημένα του Γιάννη",
+                groom_favs: "<i class='fas fa-heart' style='color:var(--dark-green)'></i> Αγαπημένα του Γιάννη",
                 bestman_favs: "<i class='fas fa-glass-martini-alt'></i> Τα μπαρ του Κουμπάρου",
                 travel_info_title: "<i class='fas fa-plane'></i> Διαμονή & Μετακίνηση",
                 travel_list: "<li><i class='fas fa-bed'></i> <strong>Ξενοδοχεία:</strong> City Hotel, Daios, Electra Palace</li><li><i class='fas fa-car'></i> <strong>Μετακίνηση:</strong> Προτείνεται η ενοικίαση αυτοκινήτου για το μοναστήρι.</li>",
