@@ -7,7 +7,7 @@
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Arima:wght@400&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
@@ -20,24 +20,23 @@
             --text-dark: #2C2C2C; 
             --text-light: #555555;
             --white: #FFFFFF;
-            
-            /* Dark Olive Green (Used for Text & Names) */
             --dark-green: #4A5E3A; 
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
         
         body {
-            font-family: 'Montserrat', sans-serif;
+            font-family: 'Montserrat', sans-serif; /* Clean font for reading */
             background-color: var(--cream);
             color: var(--text-dark);
             line-height: 1.6;
         }
 
+        /* UPDATED: Arima Font for all headings */
         h1, h2, h3, h4 {
-            font-family: 'Cormorant Garamond', serif;
-            color: var(--terracotta);
-            font-weight: 700;
+            font-family: 'Arima', cursive;
+            color: var(--dark-green); /* Using Dark Green as requested */
+            font-weight: 400; /* Regular weight */
         }
 
         /* --- Navigation --- */
@@ -55,10 +54,10 @@
         }
 
         .logo { 
-            font-size: 1.5rem; 
-            font-weight: bold; 
-            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.6rem; 
+            font-family: 'Arima', cursive; /* Updated to Arima */
             color: var(--dark-green); 
+            font-weight: 400;
         }
 
         .lang-switch {
@@ -99,30 +98,30 @@
         }
 
         .hero-image {
-            /* DESKTOP SETTINGS */
-            width: 900px;         /* Fixed width for desktop */
-            max-width: 100%;      /* Ensures it doesn't overflow screen */
+            width: 900px;
+            max-width: 100%;
             height: auto;
-            margin-bottom: 0px;   /* Removed bottom margin */
+            margin-bottom: 0px;
             margin-top: -60px;   
             animation: fadeIn 2s ease-in;
         }
 
         header h1 {
-            font-size: 4rem;
+            font-size: 4.5rem; /* Arima is slightly smaller, so I bumped size up a bit */
             margin-bottom: 5px;
             color: var(--dark-green);
             line-height: 1.1;
             z-index: 2;
+            font-family: 'Arima', cursive; /* Updated to Arima */
         }
 
         .date-display {
-            font-size: 1.8rem;
+            font-size: 2rem;
             letter-spacing: 2px;
             margin-top: 10px;
-            font-weight: 300;
+            font-weight: 400;
             color: var(--dark-green);
-            font-family: 'Cormorant Garamond', serif;
+            font-family: 'Arima', cursive; /* Updated to Arima */
         }
         
         @keyframes fadeIn {
@@ -150,10 +149,10 @@
 
         .cd-number {
             display: block;
-            font-size: 1.8rem;
-            font-weight: bold;
+            font-size: 2rem;
+            font-weight: 400;
             color: var(--terracotta);
-            font-family: 'Cormorant Garamond', serif;
+            font-family: 'Arima', cursive; /* Updated to Arima */
         }
 
         .cd-label {
@@ -161,6 +160,7 @@
             text-transform: uppercase;
             letter-spacing: 1px;
             color: var(--text-light);
+            font-family: 'Montserrat', sans-serif;
         }
 
         /* --- Content Sections --- */
@@ -174,17 +174,17 @@
         .section:nth-child(even) { background-color: white; }
 
         .section h2 {
-            font-size: 3rem;
+            font-size: 3.2rem; /* Adjusted for Arima */
             margin-bottom: 40px;
-            color: var(--dark-green); /* CHANGED FROM SAGE TO DARK GREEN */
+            color: var(--dark-green); 
         }
 
         .invite-text {
-            font-size: 1.3rem;
+            font-size: 1.4rem;
             max-width: 700px;
             margin: 0 auto 40px auto;
-            font-style: italic;
-            font-family: 'Cormorant Garamond', serif;
+            /* Arima looks great for the invite quote too */
+            font-family: 'Arima', cursive; 
         }
 
         /* --- Timeline --- */
@@ -205,7 +205,12 @@
         .time { font-weight: bold; color: var(--terracotta); margin-bottom: 10px; display: block; font-size: 1.1rem; }
         .time i { margin-right: 8px; }
         
-        .venue-name { font-weight: bold; font-size: 1.4rem; margin-bottom: 5px; font-family: 'Cormorant Garamond', serif;}
+        .venue-name { 
+            font-weight: 400; 
+            font-size: 1.6rem; 
+            margin-bottom: 5px; 
+            font-family: 'Arima', cursive; /* Updated to Arima */
+        }
         .address { font-size: 0.95rem; color: var(--text-light); margin-bottom: 15px; font-style: italic;}
 
         /* --- Lists (Recommendations) --- */
@@ -218,13 +223,14 @@
         }
         
         .rec-card h3 { 
-            font-size: 1.5rem; 
+            font-size: 1.8rem; 
             margin-bottom: 20px; 
             border-bottom: 2px solid var(--sage); 
             padding-bottom: 10px; 
             display: flex;
             align-items: center;
             gap: 10px;
+            font-family: 'Arima', cursive; /* Updated to Arima */
         }
         
         .rec-card ul { list-style: none; }
@@ -260,9 +266,8 @@
 
         /* --- MOBILE STYLES --- */
         @media (max-width: 768px) {
-            header h1 { font-size: 2.8rem; }
+            header h1 { font-size: 3rem; }
             
-            /* Make image full width on mobile */
             .hero-image { 
                 width: 100%; 
                 margin-top: 0;
@@ -275,11 +280,10 @@
             .cd-number { font-size: 1.4rem; }
             .cd-label { font-size: 0.6rem; }
 
-            /* STACKED NAMES: Makes the & symbol a block element on mobile, forcing new lines */
             .mobile-amp {
                 display: block;
                 margin: 5px 0;
-                font-size: 2rem; /* Make the ampersand slightly smaller if desired */
+                font-size: 2rem; 
             }
         }
     </style>
@@ -416,7 +420,6 @@
         // --- TRANSLATIONS ---
         const translations = {
             en: {
-                // Modified names to include the mobile-amp span for stacking
                 names: "Anastasia <span class='mobile-amp'>&</span> Yiannis",
                 cd_days: "Days", cd_hours: "Hours", cd_mins: "Mins", cd_secs: "Secs",
                 invite_title: "The Wedding",
@@ -442,7 +445,6 @@
                 bank_details: "<strong>UK Bank Account</strong><br>Sort Code: XX-XX-XX<br>Account: XXXXXXXX<br>Name: Anastasia & Yiannis"
             },
             gr: {
-                // Modified names to include the mobile-amp span for stacking
                 names: "Αναστασία <span class='mobile-amp'>&</span> Γιάννης",
                 cd_days: "Ημέρες", cd_hours: "Ώρες", cd_mins: "Λεπτά", cd_secs: "Δευτ.",
                 invite_title: "Ο Γάμος Μας",
@@ -471,12 +473,10 @@
 
         // --- LANGUAGE SWITCHER ---
         function setLanguage(lang) {
-            // Update Active Button
             document.getElementById('btn-en').classList.remove('active');
             document.getElementById('btn-gr').classList.remove('active');
             document.getElementById('btn-' + lang).classList.add('active');
 
-            // Update Text Content
             const elements = document.querySelectorAll('[data-i18n]');
             elements.forEach(el => {
                 const key = el.getAttribute('data-i18n');
@@ -485,10 +485,8 @@
                 }
             });
 
-            // Update Gift details
             document.getElementById('gift-details').innerHTML = translations[lang]['bank_details'];
 
-            // Update URL
             const newUrl = new URL(window.location);
             newUrl.searchParams.set('lang', lang);
             window.history.pushState({}, '', newUrl);
@@ -518,9 +516,8 @@
         }
 
         setInterval(updateCountdown, 1000);
-        updateCountdown(); // Run once immediately
+        updateCountdown(); 
 
-        // --- INITIALIZATION ---
         window.onload = function() {
             const urlParams = new URLSearchParams(window.location.search);
             const langParam = urlParams.get('lang');
