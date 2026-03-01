@@ -177,17 +177,16 @@
 
     /* Hero */
     #placeholder-page header {
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    padding: 20px;
-    padding-top: 80px;
-    background-color: var(--cream);
-    overflow: hidden;
+        min-height: 100vh; /* Force it to be the full height of the screen */
+        display: flex;
+        flex-direction: column;
+        justify-content: center; /* Centers the image/names vertically */
+        align-items: center;
+        text-align: center;
+        padding: 20px;
+        background-color: var(--cream);
     }
+        
     #placeholder-page .hero-image {
         width: 700px;         /* This makes it significantly smaller and elegant */
         max-width: 80%;       /* Ensures it fits on mobile screens */
@@ -223,9 +222,11 @@
     display: flex;
     justify-content: center;
     gap: 15px;
-    margin-top: 40px;
+    padding: 60px 0; /* Adds space above and below the countdown */
+    background-color: var(--cream);
     flex-wrap: wrap;
-    }
+    margin-top: 0; /* Resets the margin since we have padding now */
+    }   
     #placeholder-page .cd-box {
     background: rgba(255,255,255,0.8);
     border: 1px solid var(--sage);
@@ -1049,14 +1050,14 @@
             <img src="monastery_transparent.png" alt="Wedding Floral Decor" class="hero-image">
             <h1 data-i18n="names">Anastasia & Yiannis</h1>
             <div class="date-display">26 . 09 . 2026</div>
-    
-            <div id="countdown">
-                <div class="cd-box"><span class="cd-number" id="days">0</span><span class="cd-label" data-i18n="cd_days">Days</span></div>
-                <div class="cd-box"><span class="cd-number" id="hours">0</span><span class="cd-label" data-i18n="cd_hours">Hours</span></div>
-                <div class="cd-box"><span class="cd-number" id="minutes">0</span><span class="cd-label" data-i18n="cd_mins">Mins</span></div>
-                <div class="cd-box"><span class="cd-number" id="seconds">0</span><span class="cd-label" data-i18n="cd_secs">Secs</span></div>
-            </div>
         </header>
+        
+        <div id="countdown">
+            <div class="cd-box"><span class="cd-number" id="days">0</span><span class="cd-label" data-i18n="cd_days">Days</span></div>
+            <div class="cd-box"><span class="cd-number" id="hours">0</span><span class="cd-label" data-i18n="cd_hours">Hours</span></div>
+            <div class="cd-box"><span class="cd-number" id="minutes">0</span><span class="cd-label" data-i18n="cd_mins">Mins</span></div>
+            <div class="cd-box"><span class="cd-number" id="seconds">0</span><span class="cd-label" data-i18n="cd_secs">Secs</span></div>
+        </div>
     
         <section class="section">
             <h2 data-i18n="invite_title">The Wedding</h2>
