@@ -196,31 +196,36 @@
         margin-bottom: 20px;    /* Space between image and names */
         animation: fadeIn 1s ease-in;
     }
-    #placeholder-page header h1 {
-        font-family: 'Arima', cursive;
+    /* Specific styling for the names to ensure they stay Arima and Green */
+    #placeholder-page header h1, 
+    #placeholder-page h1[data-i18n="names"] {
+        font-family: 'Arima', cursive !important; /* !important ensures it wins */
         font-size: 5.5rem;
-        font-weight: 400;       /* Thinner as requested */
-        color: var(--dark-green);
-        margin: 0;              /* Remove extra margins */
+        font-weight: 400; 
+        color: var(--dark-green) !important; 
+        margin: 0;
         line-height: 1.1;
         letter-spacing: 2px;
+        text-transform: none; /* Prevents accidental all-caps */
     }
     
+    /* Update the media query too, so it stays green on mobile */
+    @media (max-width: 768px) {
+        #placeholder-page header h1 {
+            font-size: 3.2rem !important;
+            color: var(--dark-green) !important;
+            font-family: 'Arima', cursive !important;
+        }
+    }
+        
     #placeholder-page .date-display {
-        font-size: 1.8rem;
+        font-size: 3rem;
         margin-top: 15px;       /* Pushes the date slightly below the names */
         color: var(--dark-green);
         font-family: 'Arima', cursive;
         font-weight: 400;
     }
-    
-    /* Mobile Adjustment - Essential for large fonts */
-    @media (max-width: 768px) {
-        #placeholder-page header h1 {
-            font-size: 3.5rem; /* Scales down so it doesn't break on phones */
-            padding: 0 10px;
-        }
-    }
+
     #placeholder-page .date-display {
     font-size: 3rem;
     letter-spacing: 2px;
