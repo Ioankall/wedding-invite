@@ -177,40 +177,41 @@
 
     /* Hero */
     #placeholder-page header {
-        min-height: 100vh; /* Force it to be the full height of the screen */
+        height: 100vh;           /* Forces exactly one screen height */
         display: flex;
         flex-direction: column;
-        justify-content: center; /* Centers the image/names vertically */
-        align-items: center;
+        justify-content: center;  /* This centers the group vertically */
+        align-items: center;      /* This centers the group horizontally */
         text-align: center;
-        padding: 20px;
+        padding: 40px 20px;
         background-color: var(--cream);
+        overflow: hidden;
+        position: relative;
     }
         
     #placeholder-page .hero-image {
-        width: 700px;         /* This makes it significantly smaller and elegant */
-        max-width: 80%;       /* Ensures it fits on mobile screens */
+        width: 600px;           /* Slightly smaller to ensure it fits the screen height */
+        max-width: 80%; 
         height: auto;
-        margin-bottom: 10px;  /* Space between image and names */
-        margin-top: -8px;      /* Resetting this so it doesn't overlap the nav */
+        margin-bottom: 20px;    /* Space between image and names */
         animation: fadeIn 1s ease-in;
     }
     #placeholder-page header h1 {
-        font-family: 'Arima', cursive; /* Matching "The Wedding" title */
-        font-size: 5.5rem;             /* Large and impactful */
-        font-weight: 600;             /* Stronger weight for Greek characters */
-        color: var(--dark-green);     /* Your specific theme green */
-        margin-bottom: 10px;
+        font-family: 'Arima', cursive;
+        font-size: 5.5rem;
+        font-weight: 400;       /* Thinner as requested */
+        color: var(--dark-green);
+        margin: 0;              /* Remove extra margins */
         line-height: 1.1;
-        letter-spacing: 1px;          /* Slight spacing for elegance */
-        text-align: center;
-        animation: fadeIn 1.2s ease-in;
+        letter-spacing: 2px;
     }
     
-    /* Specifically for the ampersand if you want it to pop */
-    #placeholder-page header h1 span {
-        font-family: 'Arima', cursive;
+    #placeholder-page .date-display {
+        font-size: 1.8rem;
+        margin-top: 15px;       /* Pushes the date slightly below the names */
         color: var(--dark-green);
+        font-family: 'Arima', cursive;
+        font-weight: 400;
     }
     
     /* Mobile Adjustment - Essential for large fonts */
@@ -221,7 +222,7 @@
         }
     }
     #placeholder-page .date-display {
-    font-size: 2rem;
+    font-size: 3rem;
     letter-spacing: 2px;
     margin-top: 10px;
     font-weight: 500;
